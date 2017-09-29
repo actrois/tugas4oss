@@ -13,10 +13,3 @@ before_script:
 
 script:
   - python manage.py test
-
-deploy:
-  provider: packagecloud
-  repository: "https://packagecloud.io/actrois/serverhealth"
-  username: "actrois"
-  token: "d56070f328959017a4d0b09373c255ccb1b3fa3279fe014e"
-  dist: "ubuntu/xenial"
