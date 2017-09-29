@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Server Health Monitor</title>
+	</head>
+	<body>
+		<br>
+		Server Health
+		<table>
+			<tr>
+				<td>CPU Usage</td>
+				<td> : </td>
+				<td><span id='cpu'>{{cpu}}</span>%</td>
+			</tr>
+			<tr>
+				<td>Memory Used</td>
+				<td> : </td>
+				<td><span id='used_mem'>{{used_mem}}</span> bytes</td>
+			</tr>
+			<tr>
+				<td>Memory Available</td>
+				<td> : </td>
+				<td><span id='available_mem'>{{available_mem}}</span> bytes</td>
+			</tr>
+			<tr>
+				<td>Total Memory</td>
+				<td> : </td>
+				<td><span id='total_mem'>{{total_mem}}</span> bytes</td>
+			</tr>
+			<tr>
+				<td>Memory Used%</td>
+				<td> : </td>
+				<td><span id='mem_percent'>{{mem_percent}}</span>%</td>
+			</tr>
+		</table>
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+		<script type="text/javascript">
+			var updateData = function(){
+				$.ajax({
+					url: 'updateData/',
+					dataType: 'json',
+					success: function(data){
+						$('#cpu').html(data.cpu);
+						$('#used_mem').html(data.used_mem);
+						$('#available_mem').html(data.available_mem);
+						$('#total_mem').html(data.total_mem);
+						$('#mem_percent').html(data.mem_percent);
+					}
+				});
+				console.log('Data updated');
+			};
+			setInterval(updateData, 2000);
+		</script>
+	</body>
+</html>
