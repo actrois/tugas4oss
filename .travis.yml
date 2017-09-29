@@ -1,15 +1,12 @@
-language: python
+sudo: required
+language: generic
 
-python:
-  - "2.7"
-
-env:
-  -DJANGO=1.11
-
-install:
-  - pip install -r requirements.txt
-
-before_script:
+services:
+  - docker
 
 script:
-  - python manage.py test
+  - wget -O- http://travis.debian.net/script.sh | sh -
+
+branches:
+  except:
+    - /^debian\/\d/
