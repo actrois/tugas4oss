@@ -1,7 +1,7 @@
 Source: tugas4oss
 Section: unknown
 Priority: optional
-Maintainer: astrico <astrico.aulia@gmail.com>
+Maintainer: Aulia Astrico <astrico.aulia@gmail.com>
 Build-Depends: debhelper (>=9)
 Standards-Version: 3.9.6
 Homepage: <insert the upstream URL, if relevant>
